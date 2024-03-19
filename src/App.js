@@ -12,8 +12,23 @@ import DisplayItems from './components/item/DisplayItems';
 import DisplayStockItems from './components/item/DisplayStockItems';
 import homeLogo from "./pictures/homeLogo.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import LogIn from "./components/login/LogIn";
+import PrivateRoute from './components/privateRoute/PrivateRoute';
 
 function App() {
+
+  // const reqBody = {
+  //   username: "",
+  //   password: "password"
+  // };
+
+  // fetch("api/auth/login",{
+  //   headers:{
+  //     "content-type": "application/json"
+  //   },
+  //   method: "post",
+  //   body: JSON.stringify(reqBody)
+  // }).then(response => console.log(response));
   return (
     <body>
       <div>
@@ -39,7 +54,12 @@ function App() {
             {/* <img class="text-center" style={{ width: "20%", marginLeft: "600px" }} src={homeLogo}></img> */}
           </div>
           <Routes>
-          <Route path='/' element={<Home />} />
+
+          <Route path='/' element={
+          <PrivateRoute>
+          <Home />
+          </PrivateRoute>} />
+
           <Route path='/cart' element={<Cart />} />
           <Route path='/item/:id' element={<AddItemToCart />} />
           <Route path='/item' element={<AddItem />} />
@@ -49,6 +69,7 @@ function App() {
           <Route path='/shopping' element={<BuyerCart />} />
 
           <Route path='/item' element={<DisplayStockItems />} />
+          <Route path='/login' element={<LogIn />} />
 
 
 

@@ -17,71 +17,35 @@ function UpdateCartItem(props) {
     const [items, setItems] = useState([]);
 const [id, setId] = useState();
 
-    // function getCartItems() {
-    //     axios.get("http://localhost:8080/cart/get/" + params.id)
-    //         .then((response) => { setItems(response.data.items) })
-    //         .catch(console.log())
-    //         console.log( items);
-    //         setId({cart: params.id});
-    // }
-    // useEffect(() => { getCartItems() }, [])
+function handleClick(){
 
-    // for (const item of items){
-    //     if (item.id === params.id){
-    //         setItemQuantity(item.itemQuantity)
-    //    break }
-    // }
-    
+    // e.preventDefault()
+
+
+    axios.patch("http://localhost:8080/item/update/"+params.id, { itemQuantity, cart: { id: params.id }})
+
+        .then(response => {
+            
+            setItemQuantity("");
+            // window.location.reload(DisplayCartContent)
+            //  navigate("/cart/get/"+id)
+            navigate(-1);
+           
+
+        })
+
+        .catch(err => console.error(err))
+
+}
+ 
     return (
         <div  style={{backgroundColor:"#fcc72b", height:"900px"}}>
 
 
 <form
-            onSubmit={e => {
 
-                e.preventDefault()
-
-                // axios.patch("http://localhost:8080/item/update/"+params.id, { itemName, itemPrice, itemQuantity, cart: params.id })
-                axios.patch("http://localhost:8080/item/update/"+params.id, { itemQuantity, cart: { id: params.id }})
-
-                    .then(response => {
-                        
-                        setItemQuantity("");
-                        // window.location.reload(DisplayCartContent)
-                        //  navigate("/cart/get/"+id)
-                        navigate(-1);
-                       
-
-                    })
-
-                    .catch(err => console.error(err))
-
-            }
-            }
             >
-                    {/* <div label htmlFor="itemName" className="form-label">Item Name
-                <input size="50"
-                    id="itemName"
-                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
-                    type="text"
-                    // placeholder=""
-                    value={itemName}
-                    onChange={e => setItemName(e.target.value)}
-                    
-                />
-
-            </div>
-
-            <div label htmlFor="itemPrice" className="form-label">Item Price
-                <input size="50"
-                    id="itemPrice"
-                    className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "37px" }}
-                    type="number"
-                    value={itemPrice}
-                    onChange={e => setItemPrice(e.target.value)}
-                    
-                /> */}
-            {/* </div> */}
+ 
 
 <br></br><br></br>
             <div style={{marginLeft: "10px"}} label htmlFor="itemQuantity" className="form-label"><h2>Item Quantity:</h2>
@@ -98,7 +62,7 @@ const [id, setId] = useState();
             </div>
 
 
-            <button className="btn btn-success" style = {{margin: "5px",marginLeft:"40px", color:"#fdc1da"}} type="submit"><strong>Submit</strong></button>
+            <button className="btn btn-success" style = {{margin: "5px",marginLeft:"40px", color:"#fdc1da"}} onClick={handleClick} type="submit"><strong>Submit</strong></button>
 <br></br><br></br>
 <div><img className="text-center" style={{ marginLeft:"40px",width: "10%" }} src={basket}></img></div>
         </form >
