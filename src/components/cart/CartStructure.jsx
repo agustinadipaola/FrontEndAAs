@@ -1,20 +1,23 @@
-import PropTypes from "prop-types";
+// display of the carts
+
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import CreateCart from "./CreateCart";
 import CartLogo from "../../pictures/shoppingCart.webp";
 import userLogo from "../../pictures/user.jpg";
 import "bootstrap/dist/css/bootstrap.css";
+
+
 function CartStructure(props) {
-  const navigate = useNavigate();
-  let disabledStatus = true;
+  const navigate = useNavigate(); // Initialize the navigation function
+  let disabledStatus = true; // Initialize a boolean variable
+    // Check if itemCount is zero; if so, set disabledStatus to false
+
   if (!props.itemCount) disabledStatus = false;
 
+  // Function to delete the cart
   function deleteCart() {
-    axios.delete("http://localhost:8080/cart/delete/" + props.id);
-    window.location.reload();
+    axios.delete("http://localhost:8080/cart/delete/" + props.id); // Send a DELETE request
+    window.location.reload(); // Reload the page after deletion
   }
 
   return (

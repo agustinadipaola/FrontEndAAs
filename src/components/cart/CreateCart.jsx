@@ -1,17 +1,18 @@
-import axios from "axios";
+// create cart on the cart page - create new cart
 
+import axios from "axios";
 import { useEffect, useState } from "react";
 import CartStructure from "./CartStructure";
-import Shop from "./Shop";
 
 function CreateCart() {
-  const cartList = [];
+  const cartList = []; // An array to store cart components
   const [carts, setCarts] = useState([]);
-  const [cart, setCart] = useState("{}");
+  const [cart, setCart] = useState("{}"); // State variable for the current cart (initialized as an empty object)
   const [buyer, setBuyer] = useState("");
-  const [filter, setFilter] = useState("");
-  let count = 0;
+  const [filter, setFilter] = useState("");// State variable for filtering carts based on buyer names
+  let count = 0; // Keeps track of the item count for each cart
 
+    // Fetch cart data from the server
   function getCarts() {
     axios
       .get("http://localhost:8080/cart/get")
@@ -22,28 +23,29 @@ function CreateCart() {
   }
   useEffect(() => {
     getCarts();
-  }, []);
+  }, []); // Run this effect once when the component mounts
 
+    // Loop through each cart and create CartStructure components
   for (const cart of carts) {
-    // *******************
-    if (filter && !cart.buyer.toLowerCase().includes(filter.toLowerCase()))
-      continue;
-    //    *************************
-    count = cart.items.length;
+        if (filter && !cart.buyer.toLowerCase().includes(filter.toLowerCase()))
+      continue;  // Skip carts that don't match the filter
+
+      count = cart.items.length; // Calculate the item count for this cart
     cartList.push(
       <CartStructure id={cart.id} buyer={cart.buyer} itemCount={count} />
-    );
+      ); // Add a CartStructure component to the list
   }
-
+  
+  // Handle button click to create a new cart
   function handleclick() {
     if (!buyer) alert("Please enter customer name");
     else {
       axios
         .post("http://localhost:8080/cart/create", { buyer })
         .then((response) => {
-          getCarts();
-          setBuyer("");
-          console.log(buyer);
+          getCarts(); // Refresh the cart list
+          setBuyer(""); // Reset the buyer input field
+          console.log(buyer); // Log the buyer's name (for debugging)
         })
         .catch((err) => console.error(err));
     }
@@ -104,7 +106,6 @@ function CreateCart() {
         </div>
       </div>
 
-      {/* ************************************************ */}
 
       <div
         id="cartSearch"
@@ -147,7 +148,6 @@ function CreateCart() {
         </div>
       </div>
 
-      {/* ******************************************************** */}
 
       <h3 style={{ marginLeft: "10px" }}>
         <u>List of Carts</u>

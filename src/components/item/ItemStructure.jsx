@@ -8,22 +8,29 @@ import { isVisible } from "@testing-library/user-event/dist/utils";
 import { useParams } from "react-router-dom";
 
 function ItemStructure(props) {
-  const navigate = useNavigate();
-  const [itemQuantity, setItemQuantity] = useState();
-  const [item, setItem] = useState();
-  const params = useParams("");
-  let itemTotal = props.price * props.quantity;
-  let visiblity = false;
+  
+  const navigate = useNavigate();   // Set up navigation using the useNavigate hook
+  const [itemQuantity, setItemQuantity] = useState();  // Quantity of the item
+  const [item, setItem] = useState(); // Details of the item
+  const params = useParams("");   // Extract URL parameters (not used )
+  
+  
+  let itemTotal = props.price * props.quantity;   // Calculate the total cost of the item
 
+  // Control visibility based on item quantity
+  let visiblity = false;
+  
+  // Function to delete an item
   function deleteItem() {
     axios.delete("http://localhost:8080/item/delete/" + props.id);
-    window.location.reload();
+    window.location.reload(); // Reload the page after deletion
   }
 
   if (!props.quantity) {
-    visiblity = "none";
+    visiblity = "none";  // Hide the component if quantity is not provided
   }
   return (
+    // Items display of the cart (like checkout page)
     <div style={{ width: "30%" }}>
       <h5>
         <u>Items: {props.id}</u>

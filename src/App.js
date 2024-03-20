@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
@@ -8,7 +7,6 @@ import AddItem from "./components/item/AddItem";
 import DisplayCartContent from "./components/cart/DisplayCartContent";
 import UpdateCartItem from "./components/item/UpdateCartItem";
 import BuyerCart from "./components/cart/BuyerCart";
-import DisplayItems from "./components/item/DisplayItems";
 import DisplayStockItems from "./components/item/DisplayStockItems";
 import homeLogo from "./pictures/homeLogo.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";

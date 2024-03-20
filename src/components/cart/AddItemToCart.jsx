@@ -1,13 +1,22 @@
+//  where you are inside the cart you add and item and automatically put in the cart
+
+
+
 import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DisplayStockItems from "../item/DisplayStockItems";
+
+
 function AddItemToCart() {
+    // State variables for item information
   const [itemName, setItemName] = useState("");
   const [itemPrice, setItemPrice] = useState(0.0);
   const [itemQuantity, setItemQuantity] = useState(0);
+  // Access route parameters (e.g., item ID)
   const params = useParams("");
+  // Initialize the navigation function
   const navigate = useNavigate();
 
   return (
@@ -18,8 +27,9 @@ function AddItemToCart() {
         className="card"
         style={{ width: "50%", position: "center", margin: "20px" }}
         onSubmit={(e) => {
-          e.preventDefault();
+          e.preventDefault(); // Prevent the default form submission behavior
 
+          // Make an HTTP POST request to create an item
           axios
             .post("http://localhost:8080/item/create", {
               itemName,
@@ -27,11 +37,12 @@ function AddItemToCart() {
               itemQuantity,
               cart: { id: params.id },
             })
-
+             // Clear input fields after successful item creation
             .then((response) => {
               setItemName("");
               setItemPrice("");
               setItemQuantity("");
+              // Navigate to the cart page
               navigate("/cart/get/" + params.id);
             })
 
@@ -39,6 +50,7 @@ function AddItemToCart() {
         }}
       >
         <div>
+          {/* Input field for item name */}
           <div class="row g-3 align-items-center">
             <div class="col-auto">
               <div
@@ -68,7 +80,8 @@ function AddItemToCart() {
               </div>
             </div>
           </div>
-
+          
+          {/* Input field for item price */}
           <div
             style={{ marginLeft: "10px" }}
             label
@@ -93,6 +106,7 @@ function AddItemToCart() {
             />
           </div>
 
+          {/* Input field for item quantity */}
           <div
             style={{ marginLeft: "10px" }}
             label

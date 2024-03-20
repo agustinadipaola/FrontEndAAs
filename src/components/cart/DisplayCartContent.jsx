@@ -1,33 +1,35 @@
+// http://localhost:3000/cart/get/1 Content of the cart
+
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ItemStructure from "../item/ItemStructure";
 import { useEffect, useState } from "react";
-import CartStructure from "./CartStructure";
 import { useNavigate } from "react-router";
 import userLogo from "../../pictures/user.jpg";
 
 function DisplayCartContent() {
-  const params = useParams("");
+  const params = useParams(""); // Get parameters from the URL (e.g., cart ID)
   const itemList = [];
   const [items, setItems] = useState([]);
   const [buyer, setBuyer] = useState("");
-  let itemTotal = 0;
-  let cartTotal = 0;
-  const navigate = useNavigate();
+  let cartTotal = 0; // Total cost of items in the cart
+  const navigate = useNavigate(); // Navigation function from React Router
 
   function getCartItems() {
+      // Fetch cart items based on the cart ID
     axios
       .get("http://localhost:8080/cart/get/" + params.id)
       .then((response) => {
-        setItems(response.data.items);
-        setBuyer(response.data.buyer);
+        setItems(response.data.items);  // Set the cart items in the state
+        setBuyer(response.data.buyer);  // Set the buyer's name in the state
         console.log("response.data.items:", response.data.items);
       })
       .catch(console.log());
 
-    console.log("items:", items);
+    console.log("items:", items); // Log the items (for debugging)
   }
 
+  // Create an item component for each item in the cart
   for (const item of items) {
     itemList.push(
       <ItemStructure
@@ -38,13 +40,17 @@ function DisplayCartContent() {
       />
     );
   }
+    // Calculate the total cost of items in the cart
   for (const item of items) {
     cartTotal = cartTotal + item.itemPrice * item.itemQuantity;
   }
 
+  // Run the getCartItems function when the component mounts
   useEffect(() => {
     getCartItems();
   }, []);
+
+
   return (
     <div>
       <div style={{ backgroundColor: "#fcc72b", width: "100%" }}>

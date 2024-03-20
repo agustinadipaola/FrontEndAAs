@@ -1,33 +1,33 @@
+// update item quantity http://localhost:3000/item/update/2
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import DisplayCartContent from "../cart/DisplayCartContent";
-import { PropTypes, checkPropTypes } from "prop-types";
 import basket from "../../pictures/basket.jpg";
 
 function UpdateCartItem(props) {
-  const [itemName, setItemName] = useState("");
-  const [itemPrice, setItemPrice] = useState(0.0);
-  const [itemQuantity, setItemQuantity] = useState("");
-  const params = useParams("");
-  const navigate = useNavigate();
-  const [items, setItems] = useState([]);
-  const [id, setId] = useState();
+  const [itemName, setItemName] = useState(""); // Name of the item (not used )
+  const [itemPrice, setItemPrice] = useState(0.0); // Price of the item (not used
+  const [itemQuantity, setItemQuantity] = useState(""); // Quantity of the item
+  const params = useParams(""); // Extract URL parameters (not used
+  const navigate = useNavigate();  // Set up navigation using the useNavigate hook
+  const [items, setItems] = useState([]); // Initialize an empty array for items
+  const [id, setId] = useState(); // Initialize a state variable for item ID
 
+    // Function to handle updating the cart item
   function handleClick() {
     axios
       .patch("http://localhost:8080/item/update/" + params.id, {
-        itemQuantity,
-        cart: { id: params.id },
+        itemQuantity, // Include the updated item quantity in the request
+        cart: { id: params.id }, // Include the cart ID 
       })
 
       .then((response) => {
-        setItemQuantity("");
-        navigate(-1);
+        setItemQuantity("");  // Clear the item quantity state after successful update
+        navigate(-1); // Navigate back (e.g., to the previous page)
       })
 
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err)); // Log any errors to the console
   }
 
   return (
