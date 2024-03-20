@@ -30,17 +30,19 @@ function ItemStructure(props) {
     visiblity = "none";  // Hide the component if quantity is not provided
   }
   return (
-    // Items display of the cart (like checkout page)
+    // Items display of the cart (like checkout)
     <div style={{ width: "30%" }}>
       <h5>
         <u>Items: {props.id}</u>
       </h5>
 
       <div className="card" style={{ Width: "30%" }}>
+      <img src={props.image} alt="shopping cart product" />       
+
         <p className="col"> ID: {props.id} </p>
         <p className="col"> ITEM : {props.name} </p>
         <p className="col"> PRICE: £{props.price} </p>
-        <p style={{ display: visiblity }} className="col">
+         <p style={{ display: visiblity }} className="col">
           {" "}
           QUANTITY: {props.quantity}{" "}
         </p>

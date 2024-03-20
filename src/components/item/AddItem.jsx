@@ -13,6 +13,7 @@ function AddItem() {
   const [cartId, setCartId] = useState();
   const params = useParams(""); // Retrieve parameters from the URL (e.g., cart ID) using React Router's useParams hook
   const navigate = useNavigate(); // Initialize the navigation function from React Router
+  const [image, setImage] = useState("");
 
 
   return (
@@ -33,6 +34,7 @@ function AddItem() {
               itemPrice,
               itemQuantity,
               cart: params.id, // Include the cart ID in the request
+              image,
             })
 
             .then((response) => {
@@ -41,6 +43,7 @@ function AddItem() {
               setItemName("");
               setItemPrice("");
               setItemQuantity("");
+              setImage("");
               window.location.reload(); 
             })
 
@@ -116,6 +119,17 @@ function AddItem() {
             onChange={(e) => setItemQuantity(e.target.value)}
             contentEditable
           />
+        </div>
+        <div>
+        <input
+          id="propertyUploadImages"
+          name="uploadimages"
+          className="form-control"
+          type="text"
+          placeholder="Paste your URL here"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
         </div>
 
         <button

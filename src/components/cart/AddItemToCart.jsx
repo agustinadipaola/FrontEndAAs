@@ -14,6 +14,8 @@ function AddItemToCart() {
   const [itemName, setItemName] = useState("");
   const [itemPrice, setItemPrice] = useState(0.0);
   const [itemQuantity, setItemQuantity] = useState(0);
+  const [image, setImage] = useState("");
+
   // Access route parameters (e.g., item ID)
   const params = useParams("");
   // Initialize the navigation function
@@ -35,6 +37,7 @@ function AddItemToCart() {
               itemName,
               itemPrice,
               itemQuantity,
+              image,
               cart: { id: params.id },
             })
              // Clear input fields after successful item creation
@@ -42,6 +45,8 @@ function AddItemToCart() {
               setItemName("");
               setItemPrice("");
               setItemQuantity("");
+              setImage("");
+
               // Navigate to the cart page
               navigate("/cart/get/" + params.id);
             })
@@ -125,7 +130,19 @@ function AddItemToCart() {
               required
             />
           </div>
+          <div>
+        <input
+          id="propertyUploadImages"
+          name="uploadimages"
+          className="form-control"
+          type="text"
+          placeholder="Paste your URL here"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
         </div>
+        </div>
+
 
         <button
           style={{ margin: "5px", width: "150px", color: "#fdc1da" }}

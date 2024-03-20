@@ -33,11 +33,12 @@ function DisplayCartContent() {
   for (const item of items) {
     itemList.push(
       <ItemStructure
-        id={item.id}
-        name={item.itemName}
-        price={item.itemPrice}
-        quantity={item.itemQuantity}
-      />
+      id={item.id}
+      name={item.itemName}
+      price={item.itemPrice}
+      quantity={item.itemQuantity}
+      image={item.image}
+    />
     );
   }
     // Calculate the total cost of items in the cart

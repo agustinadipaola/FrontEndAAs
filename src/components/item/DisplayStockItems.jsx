@@ -23,7 +23,13 @@ function DisplayStockItems() {
   // Loop through each item and create an ItemStructure component
   for (const item of items) {
     itemList.push(
-      <ItemStructure id={item.id} name={item.itemName} price={item.itemPrice} />
+      <ItemStructure
+        id={item.id}
+        name={item.itemName}
+        price={item.itemPrice}
+        quantity={item.itemQuantity}
+        image={item.image}
+      />
     );
   }
   // Use the useEffect hook to fetch items when the component mounts
