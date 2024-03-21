@@ -54,7 +54,7 @@ function DisplayCartContent() {
 
   return (
     <div>
-      <div style={{ backgroundColor: "#fcc72b", width: "100%" }}>
+      {/* <div style={{ backgroundColor: "#fcc72b", width: "100%" }}>
         <br></br>
         <div
           style={{
@@ -132,7 +132,7 @@ function DisplayCartContent() {
           }}
         >
           <h4>Total to pay: £{cartTotal.toFixed(2)}</h4>
-        </div>
+        </div> */}
         <div style={{ marginLeft: "10px" }}>{itemList}</div>
         <div>
           <br></br>
@@ -146,7 +146,7 @@ function DisplayCartContent() {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 }
 

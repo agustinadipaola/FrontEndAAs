@@ -31,12 +31,12 @@ function ItemStructure(props) {
   }
   return (
     // Items display of the cart (like checkout)
-    <div style={{ width: "30%" }}>
+    <div style={{ width: "100%" }}>
       <h5>
         <u>Items: {props.id}</u>
       </h5>
 
-      <div className="card" style={{ Width: "30%" }}>
+      <div className="card" style={{ Width: "100%" }}>
       <img src={props.image} alt="shopping cart product" />       
 
         <p className="col"> ID: {props.id} </p>
@@ -52,7 +52,7 @@ function ItemStructure(props) {
         </p>
       </div>
 
-      <button
+      {/* <button
         className="btn btn-success"
         style={{
           display: visiblity,
@@ -65,9 +65,9 @@ function ItemStructure(props) {
         onClick={() => navigate("/item/update/" + props.id)}
       >
         <strong>Update Quantity</strong>
-      </button>
+      </button> */}
 
-      <button
+      {/* <button
         className="btn btn-success"
         style={{
           width: "200px",
@@ -81,7 +81,7 @@ function ItemStructure(props) {
         }}
       >
         <strong>Delete</strong>
-      </button>
+      </button> */}
     </div>
   );
 }

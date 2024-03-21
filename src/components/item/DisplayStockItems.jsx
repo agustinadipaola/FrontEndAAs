@@ -39,10 +39,10 @@ function DisplayStockItems() {
 
   return (
     <div>
-      <div style={{ backgroundColor: "#fcc72b", width: "80%" }}>
-        {itemList} {/* Render the list of ItemStructure components */}
+      {/* <div style={{ backgroundColor: "#fcc72b", width: "80%" }}> */}
+      <div style={{ marginLeft: "10px" }}>{itemList}</div>
       </div>
-    </div>
+    // </div>
   );
 }
 
