@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import basket from "../../pictures/basket.jpg";
+// import basket from "../../pictures/basket.jpg";
 
 function UpdateCartItem(props) {
   const [itemName, setItemName] = useState(""); // Name of the item (not used )
@@ -70,11 +70,11 @@ function UpdateCartItem(props) {
         <br></br>
         <br></br>
         <div>
-          <img
+          {/* <img
             className="text-center"
             style={{ marginLeft: "40px", width: "10%" }}
             src={basket}
-          ></img>
+          ></img> */}
         </div>
       </form>
     </div>

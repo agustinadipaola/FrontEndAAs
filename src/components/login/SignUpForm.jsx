@@ -6,6 +6,8 @@ import {
     MDBInput, 
     MDBBtn, 
 } from 'mdb-react-ui-kit'; 
+import {Button } from "react-bootstrap";
+
 
 function SignupForm() { 
     const [fullName, setFullName] = useState(''); 
@@ -45,8 +47,10 @@ function SignupForm() {
     }; 
 
     return ( 
+        <div className="bg" style={{ backgroundImage: `url('/ShoppingBackground.png')` }}>
+
         <div className="d-flex justify-content-center align-items-center vh-100"> 
-            <div className="border rounded-lg p-4" style={{width: '600px', height: 'auto'}}> 
+        <div className="border rounded-lg p-4" style={{ width: '500px', height: 'auto', backgroundColor: 'white'}}> 
                 <MDBContainer className="p-3"> 
                     <h2 className="mb-4 text-center">Sign Up Page</h2> 
                     {/* Render error message if exists */} 
@@ -67,9 +71,9 @@ function SignupForm() {
                         <option value="ROLE_CUSTOMER">Customer</option> 
                         <option value="ROLE_ADMIN">Admin</option> 
                     </select> 
-                    <button style={{ margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success mt-3" 
-                            onClick={handleSignup}><strong>Sign Up</strong> 
-                    </button> 
+                    <Button  variant="dark" style={{ fontFamily: 'bowlByOne, sans-serif' }} 
+                            onClick={handleSignup}>sign up 
+                    </Button> 
 
                     <div className="text-center"> 
                         <p>Already Registered? <a href="/">Login</a></p> 
@@ -78,6 +82,7 @@ function SignupForm() {
                 </MDBContainer> 
             </div> 
         </div> 
+        </div>
     ); 
 } 
 

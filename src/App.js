@@ -8,97 +8,62 @@ import DisplayCartContent from "./components/cart/DisplayCartContent";
 import UpdateCartItem from "./components/item/UpdateCartItem";
 import BuyerCart from "./components/cart/BuyerCart";
 import DisplayStockItems from "./components/item/DisplayStockItems";
-import homeLogo from "./pictures/homeLogo.jpg";
+import homeLogo from "./pictures/homeLogo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LogIn from "./components/login/LogIn";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import WelcomeDashboard from "./components/login/Dashboard";
 import SignupForm from "./components/login/SignUpForm";
+import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
+import { FaShoppingCart } from "react-icons/fa";
 
 function App() {
-  // const reqBody = {
-  //   username: "",
-  //   password: "password"
-  // };
-
-  // fetch("api/auth/login",{
-  //   headers:{
-  //     "content-type": "application/json"
-  //   },
-  //   method: "post",
-  //   body: JSON.stringify(reqBody)
-  // }).then(response => console.log(response));
   return (
     <body>
       <div>
         <BrowserRouter>
           {/* <nav className="navbar align-content-center " style={{ display: "flex", backgroundColor: "#526899", }}> */}
 
-          <nav
-            className="navbar align-content-center "
-            style={{ display: "flex", backgroundColor: "  #00450a" }}
-          >
-            <div>
-              <div className="homeimage"></div>
+          <Navbar bg="light" data-bs-theme="light">
+            <Container>
+            <a className="navbar-brand" href="/">
+
               <img
-                class="text-center"
-                alt="logo"
-                style={{ width: "10%" }}
+                className="navbar-brand"
+                href="/home"
+                alt="Big Cart Saver Logo"
+                style={{ width: "15%" }}
                 src={homeLogo}
               ></img>
-              <Link to="/">
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  style={{ margin: "10px", color: "#fdc1da" }}
-                >
-                  <strong>Home</strong>
-                </button>
-              </Link>
-              <Link to="/cart">
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  style={{ margin: "10px", color: "#fdc1da" }}
-                >
-                  <strong>Cart</strong>
-                </button>
-              </Link>
-              <Link to="/item">
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  style={{ margin: "10px", color: "#fdc1da" }}
-                >
-                  <strong>Item</strong>
-                </button>{" "}
-              </Link>
-              <Link to="/shopping">
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  style={{ margin: "10px", color: "#fdc1da" }}
-                >
-                  <strong>Shopping</strong>
-                </button>{" "}
-              </Link>
-              <p
-                style={{
-                  float: "inline-end",
-                  textAlign: "end",
-                  fontFamily: "cursive",
-                  color: "#fdc1da",
-                }}
-              >
-                <b>Here to help with the cost of living!</b>
-              </p>
-              {/* <img class="text-center" style={{ width: "20%", marginLeft: "600px" }} src={homeLogo}></img> */}
-            </div>
-          </nav>
+              </a>
 
-          <div style={{ /* backgroundColor: "#5dbc4d",*/ width: "100%" }}>
-            {/* <img class="text-center" style={{ width: "20%", marginLeft: "600px" }} src={homeLogo}></img> */}
-          </div>
+              {/* <Link to="/home" className="bowlByOne">
+                <Button variant="light">HOME</Button>
+              </Link> */}
+              <Link to="/cart" className="bowlByOne">
+                <Button variant="light">CART</Button>
+              </Link>
+              <Link to="/item" className="bowlByOne">
+                <Button variant="light">ITEM</Button>
+              </Link>
+
+              <Link to="/login" className="bowlByOne">
+                <Button variant="dark">log in </Button>
+              </Link>
+              <Link
+                className="nav-link icon-cart"
+                to="/shopping"
+                style={{ color: "black" }}
+              >
+                {" "}
+                <Button variant="light">
+                  <FaShoppingCart size={30} />
+                 <span> 0</span>
+                </Button>
+              </Link>
+            </Container>
+          </Navbar>
+
           <Routes>
             <Route
               path="/"
@@ -119,8 +84,9 @@ function App() {
 
             <Route path="/item" element={<DisplayStockItems />} />
             <Route path="/login" element={<LogIn />} />
-            <Route path='/signup' element={<SignupForm />} />
-            <Route path='/dashboard' element={<WelcomeDashboard />} />
+            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/dashboard" element={<WelcomeDashboard />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </BrowserRouter>
       </div>

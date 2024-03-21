@@ -6,6 +6,8 @@ import {
     MDBInput, 
     MDBBtn, 
 } from 'mdb-react-ui-kit'; 
+import {Button } from "react-bootstrap";
+
 
 function LoginForm() { 
     const [username, setUsername] = useState(''); 
@@ -31,15 +33,15 @@ function LoginForm() {
 
     return ( 
         <div className="d-flex justify-content-center align-items-center vh-100"> 
-            <div className="border rounded-lg p-4" style={{ width: '500px', height: 'auto' }}> 
+            <div className="border rounded-lg p-4" style={{ width: '500px', height: 'auto', backgroundColor: 'white'}}> 
                 <MDBContainer className="p-3"> 
                     <h2 className="mb-4 text-center">Login Page</h2> 
                     <MDBInput wrapperClass='mb-4' placeholder='Email address' id='email' value={username} type='email' onChange={(e) => setUsername(e.target.value)} /> 
                     <MDBInput wrapperClass='mb-4' placeholder='Password' id='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} /> 
                     {error && <p className="text-danger">{error}</p>} {/* Render error message if exists */} 
-                    <button style={{ margin: "5px", width: "150px", color: "#fdc1da" }} className="btn btn-success mt-3" onClick={handleLogin}><strong>Sign in</strong></button> 
+                    <Button  variant="dark" style={{ fontFamily: 'bowlByOne, sans-serif' }}  onClick={handleLogin}>SIGN IN</Button> 
                     <div className="text-center"> 
-                        <p>Not already Registered? <a href="/signup" >Register Here</a></p> 
+                        <p>Not  Registered yet? <a href="/signup" >Register Here</a></p> 
                     </div> 
                 </MDBContainer> 
             </div> 
