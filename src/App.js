@@ -117,6 +117,8 @@ function App() {
 
             <Route path="/item" element={<DisplayStockItems />} />
             <Route path="/login" element={<LogIn />} />
+            <Route path='/signup' element={<SignupForm />} />
+            <Route path='/dashboard' element={<WelcomeDashboard />} />
           </Routes>
         </BrowserRouter>
       </div>
