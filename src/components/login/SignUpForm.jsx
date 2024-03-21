@@ -7,6 +7,7 @@ import {
     MDBBtn, 
 } from 'mdb-react-ui-kit'; 
 import {Button } from "react-bootstrap";
+import background from '../../pictures/ShoppingBackground.png'
 
 
 function SignupForm() { 
@@ -47,7 +48,16 @@ function SignupForm() {
     }; 
 
     return ( 
-        <div className="bg" style={{ backgroundImage: `url('/ShoppingBackground.png')` }}>
+        <div className="bg"    style={{
+            height: '100vh', // Set the height to 100% of the viewport height
+            background: `url(${background})`, // Use the background image
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover', // Adjust to cover the entire container
+            display: 'flex', // Add flex display
+            alignItems: 'center', // Vertically center content
+            justifyContent: 'center', // Horizontally center content
+          }}>
 
         <div className="d-flex justify-content-center align-items-center vh-100"> 
         <div className="border rounded-lg p-4" style={{ width: '500px', height: 'auto', backgroundColor: 'white'}}> 
