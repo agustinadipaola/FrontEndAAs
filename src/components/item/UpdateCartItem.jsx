@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import basket from "../../pictures/basket.jpg";
 
 function UpdateCartItem(props) {
   const [itemName, setItemName] = useState(""); // Name of the item (not used )

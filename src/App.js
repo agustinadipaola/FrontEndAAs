@@ -44,7 +44,7 @@ function App() {
                 <Button variant="light">CART</Button>
               </Link>
               <Link to="/item" className="bowlByOne">
-                <Button variant="light">ITEM</Button>
+                <Button variant="light">CREATE ITEM</Button>
               </Link>
 
               <Link to="/login" className="bowlByOne">

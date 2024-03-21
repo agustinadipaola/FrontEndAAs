@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ItemStructure from "./ItemStructure";
+import { Card } from "react-bootstrap";
 
 function DisplayStockItems() {
   const [items, setItems] = useState([]); // Initialize a state variable 'items' with an empty array
@@ -38,11 +39,7 @@ function DisplayStockItems() {
   }, []);
 
   return (
-    <div>
-      {/* <div style={{ backgroundColor: "#fcc72b", width: "80%" }}> */}
-      <div style={{ marginLeft: "10px" }}>{itemList}</div>
-      </div>
-    // </div>
+      <div >{itemList}</div>
   );
 }
 
