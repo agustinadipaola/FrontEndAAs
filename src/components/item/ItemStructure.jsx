@@ -6,6 +6,7 @@ import axios from "axios";
 import UpdateCartItem from "./UpdateCartItem";
 import { isVisible } from "@testing-library/user-event/dist/utils";
 import { useParams } from "react-router-dom";
+import lowStock from "../../pictures/low-stock.png";
 
 function ItemStructure(props) {
   
@@ -19,6 +20,11 @@ function ItemStructure(props) {
 
   // Control visibility based on item quantity
   let visiblity = false;
+function LowStock(){
+  if (props.quantity<10) {
+    return <img src={lowStock} style={{width:"10%"}}/>
+  }
+}
   
   // Function to delete an item
   function deleteItem() {
@@ -44,7 +50,8 @@ function ItemStructure(props) {
         <p className="col"> PRICE: £{props.price} </p>
          <p style={{ display: visiblity }} className="col">
           {" "}
-          QUANTITY: {props.quantity}{" "}
+          QUANTITY: {props.quantity}{" "}{LowStock()}
+          
         </p>
         <p style={{ display: visiblity }} className="col">
           {" "}
