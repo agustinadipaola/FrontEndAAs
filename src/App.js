@@ -12,6 +12,8 @@ import homeLogo from "./pictures/homeLogo.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LogIn from "./components/login/LogIn";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import WelcomeDashboard from "./components/login/Dashboard";
+import SignupForm from "./components/login/SignUpForm";
 
 function App() {
   // const reqBody = {
