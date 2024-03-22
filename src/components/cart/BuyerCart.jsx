@@ -28,13 +28,12 @@ function BuyerCart() {
   }
 
   return (
-    <div style={{ backgroundColor: "#fcc72b", width: "100%", height: "900px" }}>
+    <div style={{ width: "100%", height: "900px" }}>
       <div style={{ marginLeft: "30px" }}>
         <div
           id="cartCreate"
           className="card-body "
           style={{
-            backgroundColor: "#fcc72b",
             width: "40%",
             border: "show ",
             borderColor: "black",
@@ -94,7 +93,7 @@ function BuyerCart() {
       <h3 style={{ marginLeft: "10px" }}>
         <u>Shopping Cart</u>
       </h3>
-      <div style={{ backgroundColor: "#fcc72b", width: "100%" }}>
+      <div style={{  width: "100%" }}>
         {/* render CartStructure with the ID of the cart, information about the buuyer and the array of items in the cart */}
         {cart && (
           <CartStructure id={cart.id} buyer={cart.buyer} items={cart.items} />

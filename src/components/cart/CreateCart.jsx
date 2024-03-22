@@ -53,7 +53,7 @@ function CreateCart() {
 
   return (
     <div
-      style={{ backgroundColor: "#fcc72b", width: "100%", height: "1000px" }}
+      style={{ width: "100%", height: "1000px" }}
     >
       <div
         id="cartCreate"

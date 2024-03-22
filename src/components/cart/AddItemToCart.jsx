@@ -23,7 +23,7 @@ function AddItemToCart() {
 
   return (
     <div
-      style={{ backgroundColor: "#fcc72b", padding: "50px", height: "1800px" }}
+      style={{  padding: "50px", height: "1800px" }}
     >
       <form
         className="card"

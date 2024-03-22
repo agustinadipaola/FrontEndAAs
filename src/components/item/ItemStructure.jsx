@@ -41,7 +41,7 @@ function ItemStructure(props) {
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       <Card
         key={props.id}
-        className="col-sm-4 col-md-3 col-lg-1 m-3"
+        className="col-sm-4 col-md-2 col-lg-2 m-3"
         style={{ textAlign: "center" }}
       >
         {/* <div
@@ -69,7 +69,7 @@ function ItemStructure(props) {
 
         <Button
           variant="dark"
-          style={{ fontFamily: "bowlByOne, sans-serif" }}
+          style={{ fontFamily: "roboto, sans-serif" }}
           onClick={() => navigate("/item/update/" + props.id)}
         >
           Update Quantity
@@ -77,7 +77,7 @@ function ItemStructure(props) {
         <br />
         <Button
           variant="dark"
-          style={{ fontFamily: "bowlByOne, sans-serif" }}
+          style={{ fontFamily: "roboto, sans-serif" }}
           onClick={() => {
             deleteItem();
           }}

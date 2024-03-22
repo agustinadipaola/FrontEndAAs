@@ -62,7 +62,7 @@ function SignupForm() {
         <div className="d-flex justify-content-center align-items-center vh-100"> 
         <div className="border rounded-lg p-4" style={{ width: '500px', height: 'auto', backgroundColor: 'white'}}> 
                 <MDBContainer className="p-3"> 
-                    <h2 className="mb-4 text-center">Sign Up Page</h2> 
+                    <h2 className="mb-4 text-center" style={{ fontFamily: 'roboto, sans-serif' }}>Sign Up Page</h2> 
                     {/* Render error message if exists */} 
                     {error && <p className="text-danger">{error}</p>} 
                     <MDBInput wrapperClass='mb-3' id='fullName' placeholder={"Full Name"} value={fullName} type='text'
@@ -81,8 +81,8 @@ function SignupForm() {
                         <option value="ROLE_CUSTOMER">Customer</option> 
                         <option value="ROLE_ADMIN">Admin</option> 
                     </select> 
-                    <Button  variant="dark" style={{ fontFamily: 'bowlByOne, sans-serif' }} 
-                            onClick={handleSignup}>sign up 
+                    <Button  variant="dark" style={{ fontFamily: 'roboto, sans-serif' }} 
+                            onClick={handleSignup}>Sign Up 
                     </Button> 
 
                     <div className="text-center"> 

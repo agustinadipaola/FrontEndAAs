@@ -37,18 +37,18 @@ function App() {
               ></img>
               </a>
 
-              {/* <Link to="/home" className="bowlByOne">
+              {/* <Link to="/home" className="roboto">
                 <Button variant="light">HOME</Button>
               </Link> */}
-              <Link to="/cart" className="bowlByOne">
-                <Button variant="light">CART</Button>
+              <Link to="/cart" className="roboto">
+                <Button variant="light"><strong>CART</strong></Button>
               </Link>
-              <Link to="/item" className="bowlByOne">
-                <Button variant="light">CREATE ITEM</Button>
+              <Link to="/item" className="roboto">
+                <Button variant="light"><strong>CREATE ITEM</strong></Button>
               </Link>
 
-              <Link to="/login" className="bowlByOne">
-                <Button variant="dark">log in </Button>
+              <Link to="/login" className="roboto">
+                <Button variant="dark"><strong>LOG IN</strong> </Button>
               </Link>
               <Link
                 className="nav-link icon-cart"
@@ -58,7 +58,7 @@ function App() {
                 {" "}
                 <Button variant="light">
                   <FaShoppingCart size={30} />
-                 <span> 0</span>
+                 <span><strong> 0</strong></span>
                 </Button>
               </Link>
             </Container>

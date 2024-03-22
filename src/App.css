@@ -51,13 +51,16 @@
 
 
 
+
+
 @font-face {
-  font-family: bowlByOne;
-  src: url(../public/BowlbyOneSC-Regular.ttf);
+  font-family: roboto;
+  src: url(../public/RobotoMono-VariableFont_wght.ttf);
 }
 
-.bowlByOne {
-  font-family: bowlByOne;
+
+.roboto{
+  font-family: roboto;
 }
 .icon-cart {
   position: relative;
