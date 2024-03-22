@@ -6,11 +6,10 @@ import CartLogo from "../../pictures/shoppingCart.webp";
 import userLogo from "../../pictures/user.jpg";
 import "bootstrap/dist/css/bootstrap.css";
 
-
 function CartStructure(props) {
   const navigate = useNavigate(); // Initialize the navigation function
   let disabledStatus = true; // Initialize a boolean variable
-    // Check if itemCount is zero; if so, set disabledStatus to false
+  // Check if itemCount is zero; if so, set disabledStatus to false
 
   if (!props.itemCount) disabledStatus = false;
 

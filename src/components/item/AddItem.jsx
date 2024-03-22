@@ -81,7 +81,7 @@ function AddItem() {
         />
         <div>
           <br />
-<strong> IMAGE:</strong>
+          <strong> IMAGE:</strong>
           <input
             id="propertyUploadImages"
             name="uploadimages"

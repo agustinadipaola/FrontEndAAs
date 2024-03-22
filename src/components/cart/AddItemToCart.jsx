@@ -1,16 +1,13 @@
 //  where you are inside the cart you add and item and automatically put in the cart
 
-
-
 import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DisplayStockItems from "../item/DisplayStockItems";
 
-
 function AddItemToCart() {
-    // State variables for item information
+  // State variables for item information
   const [itemName, setItemName] = useState("");
   const [itemPrice, setItemPrice] = useState(0.0);
   const [itemQuantity, setItemQuantity] = useState(0);
@@ -22,9 +19,7 @@ function AddItemToCart() {
   const navigate = useNavigate();
 
   return (
-    <div
-      style={{  padding: "50px", height: "1800px" }}
-    >
+    <div style={{ padding: "50px", height: "1800px" }}>
       <form
         className="card"
         style={{ width: "50%", position: "center", margin: "20px" }}
@@ -40,7 +35,7 @@ function AddItemToCart() {
               image,
               cart: { id: params.id },
             })
-             // Clear input fields after successful item creation
+            // Clear input fields after successful item creation
             .then((response) => {
               setItemName("");
               setItemPrice("");
@@ -85,7 +80,7 @@ function AddItemToCart() {
               </div>
             </div>
           </div>
-          
+
           {/* Input field for item price */}
           <div
             style={{ marginLeft: "10px" }}
@@ -131,18 +126,17 @@ function AddItemToCart() {
             />
           </div>
           <div>
-        <input
-          id="propertyUploadImages"
-          name="uploadimages"
-          className="form-control"
-          type="text"
-          placeholder="Paste your URL here"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
+            <input
+              id="propertyUploadImages"
+              name="uploadimages"
+              className="form-control"
+              type="text"
+              placeholder="Paste your URL here"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+            />
+          </div>
         </div>
-        </div>
-
 
         <button
           style={{ margin: "5px", width: "150px", color: "#fdc1da" }}

@@ -26,29 +26,34 @@ function App() {
 
           <Navbar bg="light" data-bs-theme="light">
             <Container>
-            <a className="navbar-brand" href="/">
-
-              <img
-                className="navbar-brand"
-                href="/home"
-                alt="Big Cart Saver Logo"
-                style={{ width: "15%" }}
-                src={homeLogo}
-              ></img>
+              <a className="navbar-brand" href="/">
+                <img
+                  className="navbar-brand"
+                  href="/home"
+                  alt="Big Cart Saver Logo"
+                  style={{ width: "15%" }}
+                  src={homeLogo}
+                ></img>
               </a>
 
               {/* <Link to="/home" className="roboto">
                 <Button variant="light">HOME</Button>
               </Link> */}
               <Link to="/cart" className="roboto">
-                <Button variant="light"><strong>CART</strong></Button>
+                <Button variant="light">
+                  <strong>CART</strong>
+                </Button>
               </Link>
               <Link to="/item" className="roboto">
-                <Button variant="light"><strong>CREATE ITEM</strong></Button>
+                <Button variant="light">
+                  <strong>CREATE ITEM</strong>
+                </Button>
               </Link>
 
               <Link to="/login" className="roboto">
-                <Button variant="dark"><strong>LOG IN</strong> </Button>
+                <Button variant="dark">
+                  <strong>LOG IN</strong>{" "}
+                </Button>
               </Link>
               <Link
                 className="nav-link icon-cart"
@@ -58,7 +63,9 @@ function App() {
                 {" "}
                 <Button variant="light">
                   <FaShoppingCart size={30} />
-                 <span><strong> 0</strong></span>
+                  <span>
+                    <strong> 0</strong>
+                  </span>
                 </Button>
               </Link>
             </Container>

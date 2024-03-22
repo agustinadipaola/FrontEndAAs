@@ -16,12 +16,12 @@ function DisplayCartContent() {
   const navigate = useNavigate(); // Navigation function from React Router
 
   function getCartItems() {
-      // Fetch cart items based on the cart ID
+    // Fetch cart items based on the cart ID
     axios
       .get("http://localhost:8080/cart/get/" + params.id)
       .then((response) => {
-        setItems(response.data.items);  // Set the cart items in the state
-        setBuyer(response.data.buyer);  // Set the buyer's name in the state
+        setItems(response.data.items); // Set the cart items in the state
+        setBuyer(response.data.buyer); // Set the buyer's name in the state
         console.log("response.data.items:", response.data.items);
       })
       .catch(console.log());
@@ -33,15 +33,15 @@ function DisplayCartContent() {
   for (const item of items) {
     itemList.push(
       <ItemStructure
-      id={item.id}
-      name={item.itemName}
-      price={item.itemPrice}
-      quantity={item.itemQuantity}
-      image={item.image}
-    />
+        id={item.id}
+        name={item.itemName}
+        price={item.itemPrice}
+        quantity={item.itemQuantity}
+        image={item.image}
+      />
     );
   }
-    // Calculate the total cost of items in the cart
+  // Calculate the total cost of items in the cart
   for (const item of items) {
     cartTotal = cartTotal + item.itemPrice * item.itemQuantity;
   }
@@ -50,7 +50,6 @@ function DisplayCartContent() {
   useEffect(() => {
     getCartItems();
   }, []);
-
 
   return (
     <div>
@@ -133,19 +132,19 @@ function DisplayCartContent() {
         >
           <h4>Total to pay: £{cartTotal.toFixed(2)}</h4>
         </div> */}
-        <div style={{ marginLeft: "10px" }}>{itemList}</div>
-        <div>
-          <br></br>
-          <div
-            className="card"
-            style={{ Width: "30%", backgroundColor: "#fdc1da" }}
-          >
-            <h4 style={{ position: "right" }}>
-              Total to pay: £{cartTotal.toFixed(2)}
-            </h4>
-          </div>
+      <div style={{ marginLeft: "10px" }}>{itemList}</div>
+      <div>
+        <br></br>
+        <div
+          className="card"
+          style={{ Width: "30%", backgroundColor: "#fdc1da" }}
+        >
+          <h4 style={{ position: "right" }}>
+            Total to pay: £{cartTotal.toFixed(2)}
+          </h4>
         </div>
       </div>
+    </div>
     // </div>
   );
 }

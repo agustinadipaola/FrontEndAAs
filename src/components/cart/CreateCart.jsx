@@ -9,10 +9,10 @@ function CreateCart() {
   const [carts, setCarts] = useState([]);
   const [cart, setCart] = useState("{}"); // State variable for the current cart (initialized as an empty object)
   const [buyer, setBuyer] = useState("");
-  const [filter, setFilter] = useState("");// State variable for filtering carts based on buyer names
+  const [filter, setFilter] = useState(""); // State variable for filtering carts based on buyer names
   let count = 0; // Keeps track of the item count for each cart
 
-    // Fetch cart data from the server
+  // Fetch cart data from the server
   function getCarts() {
     axios
       .get("http://localhost:8080/cart/get")
@@ -25,17 +25,17 @@ function CreateCart() {
     getCarts();
   }, []); // Run this effect once when the component mounts
 
-    // Loop through each cart and create CartStructure components
+  // Loop through each cart and create CartStructure components
   for (const cart of carts) {
-        if (filter && !cart.buyer.toLowerCase().includes(filter.toLowerCase()))
-      continue;  // Skip carts that don't match the filter
+    if (filter && !cart.buyer.toLowerCase().includes(filter.toLowerCase()))
+      continue; // Skip carts that don't match the filter
 
-      count = cart.items.length; // Calculate the item count for this cart
+    count = cart.items.length; // Calculate the item count for this cart
     cartList.push(
       <CartStructure id={cart.id} buyer={cart.buyer} itemCount={count} />
-      ); // Add a CartStructure component to the list
+    ); // Add a CartStructure component to the list
   }
-  
+
   // Handle button click to create a new cart
   function handleclick() {
     if (!buyer) alert("Please enter customer name");
@@ -52,9 +52,7 @@ function CreateCart() {
   }
 
   return (
-    <div
-      style={{ width: "100%", height: "1000px" }}
-    >
+    <div style={{ width: "100%", height: "1000px" }}>
       <div
         id="cartCreate"
         className="card-body "
@@ -106,7 +104,6 @@ function CreateCart() {
         </div>
       </div>
 
-
       <div
         id="cartSearch"
         className="card-body"
@@ -147,7 +144,6 @@ function CreateCart() {
           </div>
         </div>
       </div>
-
 
       <h3 style={{ marginLeft: "10px" }}>
         <u>List of Carts</u>

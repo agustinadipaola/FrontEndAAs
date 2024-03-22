@@ -38,9 +38,7 @@ function DisplayStockItems() {
     getItems();
   }, []);
 
-  return (
-      <div >{itemList}</div>
-  );
+  return <div>{itemList}</div>;
 }
 
 export default DisplayStockItems;
