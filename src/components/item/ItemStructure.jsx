@@ -72,7 +72,7 @@ function ItemStructure(props) {
           style={{ fontFamily: "roboto, sans-serif" }}
           onClick={() => navigate("/item/update/" + props.id)}
         >
-          Update Quantity
+          Update
         </Button>
         <br />
         <Button
