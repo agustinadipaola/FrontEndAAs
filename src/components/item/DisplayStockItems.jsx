@@ -20,7 +20,9 @@ function DisplayStockItems() {
       <div className="row">
         {items.map((item, index) => (
           <div className="col-md-2" key={index}>
-            <AdminItemStructure {...item} />
+             <div className="card h-100"> 
+            <AdminItemStructure {...item} /> {/* Rendering the AdminItemStructure component for each item, spreading the item's properties as props */}
+          </div>
           </div>
         ))}
       </div>

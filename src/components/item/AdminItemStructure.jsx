@@ -30,7 +30,7 @@ function AdminItemStructure(props) {
 
   return (
     <Card>
-      <img src={props.image} className="item-images" alt="itemImage" />
+  <img src={props.image} className="card-img-top" alt="itemImage" />
       <h4>{props.name}</h4>
       <p style={{ display: visibility }}>
         <h6> £ {parseFloat(props.price).toFixed(2)}</h6>

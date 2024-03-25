@@ -78,3 +78,8 @@
   height: 100%;
   object-fit: fill;
 }
+.card-img-top {
+  width: 100%; /* This will make the image take up the full width of the card */
+  height: 200px; /* This sets a fixed height for the image */
+  object-fit: cover; /* This will cover the area without stretching the image */
+}
