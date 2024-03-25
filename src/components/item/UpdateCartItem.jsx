@@ -37,7 +37,6 @@ function UpdateCartItem(props) {
 
   return (
     <Card
-      className="col-sm-4 col-md-2 col-lg-2 m-3"
       style={{ textAlign: "center" }}
     >
       <div style={{ height: "400px" }}>

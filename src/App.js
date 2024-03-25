@@ -9,7 +9,6 @@ import UpdateCartItem from "./components/item/UpdateCartItem";
 import BuyerCart from "./components/cart/BuyerCart";
 import DisplayStockItems from "./components/item/DisplayStockItems";
 import homeLogo from "./pictures/homeLogo.png";
-import "bootstrap/dist/css/bootstrap.min.css";
 import LogIn from "./components/login/LogIn";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import WelcomeDashboard from "./components/login/Dashboard";

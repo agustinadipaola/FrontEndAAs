@@ -1,91 +1,64 @@
 import PropTypes from "prop-types";
-
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import axios from "axios";
-import UpdateCartItem from "./UpdateCartItem";
-import { isVisible } from "@testing-library/user-event/dist/utils";
-import { useParams } from "react-router-dom";
-import lowStock from "../../pictures/low-stock.png";
-import { Card } from "react-bootstrap";
-import onSale from "../../pictures/onSale.png";
-import { Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 function AdminItemStructure(props) {
-  const navigate = useNavigate(); // Set up navigation using the useNavigate hook
-  const [itemQuantity, setItemQuantity] = useState(); // Quantity of the item
-  const [item, setItem] = useState(); // Details of the item
-  const params = useParams(""); // Extract URL parameters (not used )
+  const navigate = useNavigate();
+  const [itemQuantity, setItemQuantity] = useState();
+  const [item, setItem] = useState();
 
-  let itemTotal = props.price * props.quantity; // Calculate the total cost of the item
+  let itemTotal = props.price * props.quantity;
 
-  // Control visibility based on item quantity
-  let visiblity = false;
+  let visibility = false;
   function LowStock() {
     if (props.quantity < 10) {
-        document.getElementById('ItemQuantity').style.backgroundColor = "Red";
-  }}
+      document.getElementById('ItemQuantity').style.backgroundColor = "Red";
+    }
+  }
 
-  // Function to delete an item
-  function deleteItem() {
-    axios.delete("http://localhost:8080/item/delete/" + props.id);
-    window.location.reload(); // Reload the page after deletion
+  function deleteItem(id) {
+    axios.delete(`http://localhost:8080/item/delete/${id}`)
+      .then(() => window.location.reload())
+      .catch(error => console.error('There was an error!', error));
   }
 
   if (!props.quantity) {
-    visiblity = "none"; // Hide the component if quantity is not provided
+    visibility = "none";
   }
+
   return (
-    // Items display of the cart (like checkout)
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
-      <Card
-        key={props.id}
-        className="col-sm-4 col-md-2 col-lg-2 m-3"
-        style={{ textAlign: "center" }}
+    <Card>
+      <img src={props.image} className="item-images" alt="itemImage" />
+      <h4>{props.name}</h4>
+      <p style={{ display: visibility }}>
+        <h6> £ {parseFloat(props.price).toFixed(2)}</h6>
+        <div id="ItemQuantity">Items left: {props.quantity}{LowStock()}</div>
+      </p>
+      <Button
+        variant="dark"
+        onClick={() => navigate(`/item/update/${props.id}`)}
       >
-        {/* <div
-              style={{
-                position: "absolute",
-                top: 10,
-                right: 10,
-                transform: "scale(2)",
-              }}
-            /> */}
-        {/* <img
-          src={onSale}
-          alt="Watermark"
-          style={{ opacity: 0.65, width: 50 }}
-        /> */}
-
-        <img src={props.image} className="item-images" alt="itemImage" />
-        <br />
-        <h4>{props.name}</h4>
-        <p style={{ display: visiblity }} className="col">
-          {" "}
-          <h6> £ {parseFloat(props.price).toFixed(2)}</h6>
-          <div id="ItemQuantity">Items left: {props.quantity}{LowStock}</div>
-        </p>
-
-        <Button
-          variant="dark"
-          style={{ fontFamily: "roboto, sans-serif" }}
-          onClick={() => navigate("/item/update/" + props.id)}
-        >
-          Update
-        </Button>
-        <br />
-        <Button
-          variant="dark"
-          style={{ fontFamily: "roboto, sans-serif" }}
-          onClick={() => {
-            deleteItem();
-          }}
-        >
-          Delete
-        </Button>
-      </Card>
-    </div>
+        Update
+      </Button>
+      <br />
+      <Button
+        variant="dark"
+        onClick={() => deleteItem(props.id)}
+      >
+        Delete
+      </Button>
+    </Card>
   );
 }
+
+AdminItemStructure.propTypes = {
+  id: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired
+};
 
 export default AdminItemStructure;

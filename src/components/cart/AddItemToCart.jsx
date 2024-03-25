@@ -51,8 +51,8 @@ function AddItemToCart() {
       >
         <div>
           {/* Input field for item name */}
-          <div class="row g-3 align-items-center">
-            <div class="col-auto">
+          {/* <div class="row g-3 align-items-center">
+            <div class="col-auto"> */}
               <div
                 style={{ marginLeft: "10px" }}
                 label
@@ -78,12 +78,12 @@ function AddItemToCart() {
                   required
                 />
               </div>
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
 
           {/* Input field for item price */}
           <div
-            style={{ marginLeft: "10px" }}
+            style={{ marginLeft: "0px" }}
             label
             htmlFor="itemPrice"
             className="form-label"

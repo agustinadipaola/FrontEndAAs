@@ -37,12 +37,11 @@ function ItemStructure(props) {
     visiblity = "none"; // Hide the component if quantity is not provided
   }
   return (
-    // Items display of the cart (like checkout)
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
+    // Updated styles for the container div
+    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
       <Card
         key={props.id}
-        className="col-sm-4 col-md-2 col-lg-2 m-3"
-        style={{ textAlign: "center" }}
+        style={{ textAlign: "center", margin: "0.5rem", flex: "0 1 calc(25% - 1rem)" }} // Adjusted styles for Card
       >
         {/* <div
               style={{
@@ -61,7 +60,7 @@ function ItemStructure(props) {
         <img src={props.image} className="item-images" alt="itemImage" />
         <br />
         <h4>{props.name}</h4>
-        <p style={{ display: visiblity }} className="col">
+        <p style={{ display: visiblity }} >
           {" "}
           <h6> £ {parseFloat(props.price).toFixed(2)}</h6>
           <div>Items left: {props.quantity}</div>
