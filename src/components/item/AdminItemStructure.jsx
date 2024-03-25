@@ -11,12 +11,12 @@ function AdminItemStructure(props) {
 
   let itemTotal = props.price * props.quantity;
 
-  let visibility = false;
-  function LowStock() {
-    if (props.quantity < 10) {
-      document.getElementById('ItemQuantity').style.backgroundColor = "Red";
-    }
-  }
+  // let visibility = false;
+  // function LowStock() {
+  //   if (props.quantity < 10) {
+  //     document.getElementById('ItemQuantity').style.backgroundColor = "Red";
+  //   }
+  // }
 
   function deleteItem(id) {
     axios.delete(`http://localhost:8080/item/delete/${id}`)
@@ -24,18 +24,20 @@ function AdminItemStructure(props) {
       .catch(error => console.error('There was an error!', error));
   }
 
-  if (!props.quantity) {
-    visibility = "none";
-  }
+  // if (!props.quantity) {
+  //   visibility = "none";
+  // }
 
   return (
     <Card>
   <img src={props.image} className="card-img-top" alt="itemImage" />
-      <h4>{props.name}</h4>
-      <p style={{ display: visibility }}>
-        <h6> £ {parseFloat(props.price).toFixed(2)}</h6>
-        <div id="ItemQuantity">Items left: {props.quantity}{LowStock()}</div>
-      </p>
+  <br/>
+      <h5>{props.itemName}</h5>
+      {/* <p style={{ display: visibility }}> */}
+        <h6> £ {parseFloat(props.itemPrice).toFixed(2)}</h6>
+        <div id="ItemQuantity">Items left: {props.itemQuantity}
+        {/* {LowStock()} */}
+        </div>
       <Button
         variant="dark"
         onClick={() => navigate(`/item/update/${props.id}`)}
