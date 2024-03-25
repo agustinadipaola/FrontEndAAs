@@ -17,7 +17,7 @@ function LoginForm() {
         return;
       }
 
-      const response = await axios.post("http://localhost:8080/auth/signin", {
+      const response = await axios.post("http://localhost:8080/api/auth/signin", {
         username,
         password,
       });
@@ -47,10 +47,10 @@ function LoginForm() {
           </h2>
           <MDBInput
             wrapperClass="mb-4"
-            placeholder="Email address"
-            id="email"
+            placeholder="Username"
+            id="username"
             value={username}
-            type="email"
+            type="text"
             onChange={(e) => setUsername(e.target.value)}
           />
           <MDBInput

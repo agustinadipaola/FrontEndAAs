@@ -16,6 +16,7 @@ import WelcomeDashboard from "./components/login/Dashboard";
 import SignupForm from "./components/login/SignUpForm";
 import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
+import SignUpDashboard from "./components/login/SignUpDashboard";
 
 function App() {
   return (
@@ -87,12 +88,13 @@ function App() {
 
             <Route path="/cart/get/:id" element={<DisplayCartContent />} />
             <Route path="/item/update/:id" element={<UpdateCartItem />} />
-            <Route path="/shopping" element={<BuyerCart />} />
+            <Route path="/shopping" element={<DisplayCartContent />} />
 
             <Route path="/item" element={<DisplayStockItems />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/dashboard" element={<WelcomeDashboard />} />
+            <Route path="/welcomesignup" element={<SignUpDashboard />} />
             <Route path="/home" element={<Home />} />
           </Routes>
         </BrowserRouter>

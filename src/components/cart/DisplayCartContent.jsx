@@ -18,7 +18,7 @@ function DisplayCartContent() {
   function getCartItems() {
     // Fetch cart items based on the cart ID
     axios
-      .get("http://localhost:8080/cart/get/" + params.id)
+      .get("http://localhost:8080/cart/get/" + 1)
       .then((response) => {
         setItems(response.data.items); // Set the cart items in the state
         setBuyer(response.data.buyer); // Set the buyer's name in the state

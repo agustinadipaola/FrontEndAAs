@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ItemStructure from "./ItemStructure";
+import AdminItemStructure from "./AdminItemStructure";
 import { Card } from "react-bootstrap";
 
 function DisplayStockItems() {
@@ -24,7 +24,7 @@ function DisplayStockItems() {
   // Loop through each item and create an ItemStructure component
   for (const item of items) {
     itemList.push(
-      <ItemStructure
+      <AdminItemStructure
         id={item.id}
         name={item.itemName}
         price={item.itemPrice}
