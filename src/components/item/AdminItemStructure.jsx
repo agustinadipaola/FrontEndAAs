@@ -1,13 +1,9 @@
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router";
-import { useState } from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 
 function AdminItemStructure(props) {
   const navigate = useNavigate();
-  const [itemQuantity, setItemQuantity] = useState();
-  const [item, setItem] = useState();
 
   let itemTotal = props.price * props.quantity;
 

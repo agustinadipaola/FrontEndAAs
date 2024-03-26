@@ -13,6 +13,9 @@ import SignUpDashboard from "./components/login/SignUpDashboard";
 import UserItems from "./components/item/UserItems";
 import AppNavbar from "./components/nav/AppNavbar";
 import AdminHome from "./components/admin/AdminHome";
+import Checkout from "./components/user/Checkout";
+import SaveForLater from "./components/user/SaveForLater";
+
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +36,9 @@ function App() {
         <Route path="/home" element={<UserHome />} />
         <Route path="/UserItems" element={<UserItems />} />
         <Route path="/AdminHome" element={<AdminHome />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/save-for-later" element={<SaveForLater />} />
+
 
       </Routes>
     </BrowserRouter>

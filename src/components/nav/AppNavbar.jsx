@@ -3,7 +3,6 @@ import homeLogo from "../../pictures/homeLogo.png";
 import { Navbar, Container, Button } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
-
 const USER_TYPES = {
   PUBLIC: "",
   NORMAL_USER: "",
@@ -14,8 +13,8 @@ const USER_TYPES = {
     </div>
   ),
 };
-// const CURRENT_USER_TYPE = USER_TYPES.NORMAL_USER;
-  const CURRENT_USER_TYPE = USER_TYPES.ADMIN_USER
+const CURRENT_USER_TYPE = USER_TYPES.NORMAL_USER;
+  // const CURRENT_USER_TYPE = USER_TYPES.ADMIN_USER
 
 function AppNavbar() {
   return (
@@ -69,7 +68,7 @@ function AppNavbar() {
               <Button variant="light">
                 <FaShoppingCart size={30} />
                 <span>
-                  <strong> 0</strong>
+                  <strong> 0 </strong>
                 </span>
               </Button>
             </Link>{" "}

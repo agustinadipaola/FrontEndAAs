@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.css";
 import background from "../../pictures/ShoppingBackground.png";
-import { MdWavingHand } from "react-icons/md";
+import { MdShoppingCartCheckout } from "react-icons/md";
 
-function UserHome() {
+function SaveForLater() {
   return (
     <div
       style={{
@@ -17,25 +17,25 @@ function UserHome() {
         backgroundSize: "cover",
       }}
     >
-      <h1>
+     <div>
         {" "}
         <span
           style={{
             backgroundColor: "whitesmoke",
             marginTop: "10vh",
-            padding: "20px",
+            padding: "50px",
             width: "100%",
             display: "block",
             borderRadius: "50px",
           }}
         >
-          WELCOME BACK ADMIN &nbsp; <MdWavingHand />
+         <h1>Do not worry, we saved your <MdShoppingCartCheckout size={60}/> for later </h1>
+ 
         </span>
-      </h1>
-      {/* Content inside the background container */}
-      {/* You can add other components or text here */}
+      </div>
+   
     </div>
   );
 }
 
-export default UserHome;
+export default SaveForLater;

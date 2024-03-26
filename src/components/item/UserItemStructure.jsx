@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 
 function UserItemStructure(props) {
@@ -41,31 +42,23 @@ function UserItemStructure(props) {
 
 
   return (
-    <Card>
+    
+    <Card >
   <img src={props.image} className="card-img-top" alt="itemImage" />
-  <br/>
-      <h5>{props.itemName}</h5>
+      <h4>{props.itemName}</h4>
       {/* <p style={{ display: visibility }}> */}
         <h6> £ {parseFloat(props.itemPrice).toFixed(2)}</h6>
-        <div id="ItemQuantity">Items left: {props.itemQuantity}
-        {/* {LowStock()} */}
-        </div>
+        
         <Button
         variant="dark"
         onClick={() => AddToCart()}
       >
-        Add to Cart
+          ADD TO CART  <MdOutlineShoppingCart size={25} />
       </Button> 
     </Card>
   );
 
 
-UserItemStructure.propTypes = {
-  id: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  quantity: PropTypes.number.isRequired
-};}
+}
 
 export default UserItemStructure;

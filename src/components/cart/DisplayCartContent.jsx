@@ -5,13 +5,16 @@ import { useParams } from "react-router-dom";
 import ItemStructure from "../item/ItemStructure";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import userLogo from "../../pictures/user.jpg";
+import { IoBagCheckOutline } from "react-icons/io5";
+import { Button } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
 
 function DisplayCartContent() {
   const params = useParams(""); // Get parameters from the URL (e.g., cart ID)
   const itemList = [];
   const [items, setItems] = useState([]);
   const [buyer, setBuyer] = useState("");
+  
   let cartTotal = 0; // Total cost of items in the cart
   const navigate = useNavigate(); // Navigation function from React Router
 
@@ -53,99 +56,70 @@ function DisplayCartContent() {
 
   return (
     <div>
-      {/* <div style={{ backgroundColor: "#fcc72b", width: "100%" }}>
-        <br></br>
-        <div
-          style={{
-            backgroundColor: "white",
-            marginLeft: "10px",
-            marginRight: "10px",
-          }}
-        >
+      <div>
+        <div>
           <h3>
-            {" "}
-            Contents of Cart :{params.id}&nbsp;&nbsp;
-            <img style={{ width: "3%" }} src={userLogo}></img>
-            {buyer}
+            <span
+              style={{
+                backgroundColor: "whitesmoke",
+                marginTop: "10vh",
+                padding: "20px",
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                borderRadius: "50px",
+              }}
+            >
+              <div
+                style={{ flexGrow: 1, display: "flex", alignItems: "center" }}
+                className="roboto"
+              >
+                <IoBagCheckOutline size={30} /> &nbsp; {buyer}'s Cart
+              </div>
+
+              <Button
+                variant="dark"
+                onClick={() => {
+                  navigate("/checkout");
+                }}
+                style={{
+                  marginRight: "10px",
+                  fontFamily: "Roboto, sans-serif",
+                }} // Add right margin to the "Checkout" button
+              >
+                <strong>CHECKOUT</strong>
+              </Button>
+              <Button
+                variant="dark"
+                onClick={() => {
+                  navigate("/save-for-later");
+                }}
+                style={{ fontFamily: "Roboto" }}
+              >
+                <strong>SAVE FOR LATER</strong>
+              </Button>
+            </span>
           </h3>
         </div>
-        <button
-          style={{
-            width: "200px",
-            height: "40px",
-            margin: "5px",
-            padding: "5px",
-            color: "#fdc1da",
-            float: "right",
-          }}
-          className="btn btn-success"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <strong>Checkout</strong>
-        </button>
-        <button
-          style={{
-            width: "200px",
-            height: "40px",
-            margin: "5px",
-            padding: "5px",
-            color: "#fdc1da",
-            float: "right",
-          }}
-          className="btn btn-success"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <strong>Save For Later</strong>
-        </button>
-        <button
-          style={{
-            width: "200px",
-            height: "40px",
-            margin: "5px",
-            padding: "5px",
-            color: "#fdc1da",
-            float: "right",
-          }}
-          className="btn btn-success"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          <strong>Back</strong>
-        </button>
-        <br></br>
-        <br></br>
-        <br></br>
+
         <div
           className="card"
           style={{
             Width: "10%",
-            backgroundColor: "#fdc1da",
+            backgroundColor: "whitesmoke",
             float: "right",
             marginRight: "5px",
             padding: "10px",
           }}
         >
           <h4>Total to pay: £{cartTotal.toFixed(2)}</h4>
-        </div> */}
-      <div style={{ marginLeft: "10px" }}>{itemList}</div>
-      <div>
-        <br></br>
-        <div
-          className="card"
-          style={{ Width: "30%", backgroundColor: "#fdc1da" }}
-        >
-          <h4 style={{ position: "right" }}>
-            Total to pay: £{cartTotal.toFixed(2)}
-          </h4>
         </div>
+        <Table>
+          <div>{itemList}</div>
+        </Table>
       </div>
     </div>
-    // </div>
   );
 }
 
