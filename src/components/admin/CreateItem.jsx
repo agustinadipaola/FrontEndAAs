@@ -4,10 +4,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import DisplayStockItems from "./DisplayStockItems";
+import DisplayStockItems from "../item/DisplayStockItems";
 import { Button } from "react-bootstrap";
 
-function AddItem() {
+function CreateItem() {
   const [itemName, setItemName] = useState("");
   const [itemPrice, setItemPrice] = useState(0.0);
   const [itemQuantity, setItemQuantity] = useState(0);
@@ -108,4 +108,4 @@ function AddItem() {
   );
 }
 
-export default AddItem;
+export default CreateItem;

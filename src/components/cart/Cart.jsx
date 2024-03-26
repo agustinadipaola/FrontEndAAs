@@ -1,4 +1,4 @@
-import CreateCart from "./cart/CreateCart";
+import CreateCart from "./CreateCart";
 
 function Cart() {
   return (
