@@ -16,8 +16,8 @@ function SignUpDashboard({ username }) {
         className="border rounded-lg p-4"
         style={{ width: "500px", height: "400px" }}
       >
-        <h2 className="mb-4 text-center">Welcome to Dashboard</h2>
-        <p className="mb-4 text-center">Hello, {{username}}!</p>
+        <h2 className="mb-4 text-center">Welcome to the Dashboard</h2>
+        <p className="mb-4 text-center">Hello!</p>
         <p className="text-center">You have now registered successfully.</p>
         <div className="text-center">
           <button
@@ -27,7 +27,7 @@ function SignUpDashboard({ username }) {
             onClick={handleLogout}
           >
             {/* <strong>Logout</strong> */}
-          </button>
+          Click Here to Log In</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import Home from "./components/Home";
+import UserHome from "./components/UserHome";
 import Cart from "./components/Cart";
 import AddItemToCart from "./components/cart/AddItemToCart";
 import AddItem from "./components/item/AddItem";
@@ -15,7 +15,16 @@ import WelcomeDashboard from "./components/login/Dashboard";
 import SignupForm from "./components/login/SignUpForm";
 import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
+import { MdAdminPanelSettings } from "react-icons/md";
 import SignUpDashboard from "./components/login/SignUpDashboard";
+import UserItems from "./components/item/UserItems";
+
+const USER_TYPES = {
+  PUBLIC: '',
+  NORMAL_USER: '',
+  ADMIN_USER: <div>  <MdAdminPanelSettings size={30} /></div>
+}
+const CURRENT_USER_TYPE = USER_TYPES.NORMAL_USER
 
 function App() {
   return (
@@ -35,39 +44,43 @@ function App() {
                   src={homeLogo}
                 ></img>
               </a>
-
               {/* <Link to="/home" className="roboto">
                 <Button variant="light">HOME</Button>
               </Link> */}
-              <Link to="/cart" className="roboto">
-                <Button variant="light">
-                  <strong>CART</strong>
-                </Button>
-              </Link>
-              <Link to="/item" className="roboto">
+              
+              {(CURRENT_USER_TYPE === USER_TYPES.ADMIN_USER)?<><Link to="/item" className="roboto">
                 <Button variant="light">
                   <strong>CREATE ITEM</strong>
                 </Button>
-              </Link>
-
-              <Link to="/login" className="roboto">
-                <Button variant="dark">
-                  <strong>LOG IN</strong>{" "}
+              </Link>    </>:null }
+              {(CURRENT_USER_TYPE === USER_TYPES.NORMAL_USER)?<><Link to="/UserItems" className="roboto">
+                <Button variant="light">
+                  <strong>ITEMS</strong>
                 </Button>
-              </Link>
-              <Link
+              </Link>  </>:null }
+              
+
+              {(CURRENT_USER_TYPE === USER_TYPES.NORMAL_USER)?<><Link to="/login" className="roboto">
+                <Button variant="dark">
+                  <strong>LOG IN</strong>
+                </Button>
+                </Link>  </>:null }
+                {(CURRENT_USER_TYPE === USER_TYPES.NORMAL_USER)?<>
+                <Link
                 className="nav-link icon-cart"
                 to="/shopping"
-                style={{ color: "black" }}
-              >
-                {" "}
+                style={{ color: "black" }} >
                 <Button variant="light">
                   <FaShoppingCart size={30} />
                   <span>
                     <strong> 0</strong>
                   </span>
                 </Button>
-              </Link>
+                </Link>  </>:null }
+
+              
+              <div><strong>{CURRENT_USER_TYPE}</strong> </div>
+
             </Container>
           </Navbar>
 
@@ -76,12 +89,12 @@ function App() {
               path="/"
               element={
                 <PrivateRoute>
-                  <Home />
+                  <UserHome />
                 </PrivateRoute>
               }
             />
+            
 
-            <Route path="/cart" element={<Cart />} />
             <Route path="/item/:id" element={<AddItemToCart />} />
             <Route path="/item" element={<AddItem />} />
 
@@ -89,17 +102,44 @@ function App() {
             <Route path="/item/update/:id" element={<UpdateCartItem />} />
             <Route path="/shopping" element={<DisplayCartContent />} />
 
-            <Route path="/item" element={<DisplayStockItems />} />
+          <Route path="/item" element={<DisplayStockItems />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/dashboard" element={<WelcomeDashboard />} />
             <Route path="/welcomesignup" element={<SignUpDashboard />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={< UserHome    />} />
+            <Route path="/UserItems" element={< UserItems />} 
+           />
           </Routes>
         </BrowserRouter>
       </div>
     </body>
   );
+  function PublicElement({children}) {
+    return <>
+    {children}
+    </>;
+  }
+  function AdminElement({children}) {
+    if (CURRENT_USER_TYPE === USER_TYPES.ADMIN_USER ) {
+    return <>
+    {children}
+    </>;
+  }
+  else {
+    return <h3> You do not have access to this page</h3>;
+  }
+}
+function UserElement({children}) {
+  if (CURRENT_USER_TYPE === USER_TYPES.NORMAL_USER ) {
+  return <>
+  {children}
+  </>;
+}
+else {
+  return <h3> You do not have access to this page</h3>;
+}
+}
 }
 
 export default App;

@@ -33,7 +33,7 @@ function SignupForm() {
             setUsername("");
             setEmail("");
             setPassword("");
-            history("/welcomesignup");
+             history("/welcomesignup");
         })
         .catch(error => console.error(error))
 
@@ -50,14 +50,14 @@ return (
 
       {/* NEED TO FIGURE OUT HOW TO CLEAR FIELDS ON SUBMIT */}
       <div class="col-auto">
-          <label for="autoSizingInput">First Name</label>
-          <input className="form-control" value={username} onChange={event => setUsername(event.target.value)} placeholder="First Name" type="text" required></input>
+          <label HTMLfor="autoSizingInput">Username</label>
+          <input className="form-control" value={username} onChange={event => setUsername(event.target.value)} placeholder="Username" type="text" required></input>
 
-          <label for="autoSizingInput">Last Name</label>
-          <input className="form-control" value={email} onChange={event => setEmail(event.target.value)} placeholder="Last Name" type="text" required></input>
+          <label HTMLfor="autoSizingInput">Last Name</label>
+          <input className="form-control" value={email} onChange={event => setEmail(event.target.value)} placeholder="Email" type="email" required></input>
 
-          <label for="autoSizingInput">Postcode</label>
-          <input className="form-control" value={password} onChange={event => setPassword(event.target.value)} placeholder="Post Code" type="text" required></input>
+          <label HTMLfor="autoSizingInput">Password</label>
+          <input className="form-control" value={password} onChange={event => setPassword(event.target.value)} placeholder="Password" type="password" required></input>
       
     
           <br />

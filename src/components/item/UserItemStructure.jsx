@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 
-function AdminItemStructure(props) {
+
+function UserItemStructure(props) {
   const navigate = useNavigate();
   const [itemQuantity, setItemQuantity] = useState();
   const [item, setItem] = useState();
@@ -17,6 +18,27 @@ function AdminItemStructure(props) {
   //     document.getElementById('ItemQuantity').style.backgroundColor = "Red";
   //   }
   // }
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/item/get")
+      .then((response) => {
+        setItems(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data: ', error);
+      });
+  }, []);
+  function AddToCart(id) {
+    axios.patch("http://localhost:8080/item/update/" + id, { cart: { id: 1 } })
+
+      .then(response => {
+      })
+
+      .catch(err => console.error(err))
+  };
+
+  
 
   function deleteItem(id) {
     axios.delete(`http://localhost:8080/item/delete/${id}`)
@@ -38,29 +60,22 @@ function AdminItemStructure(props) {
         <div id="ItemQuantity">Items left: {props.itemQuantity}
         {/* {LowStock()} */}
         </div>
-      <Button
+        <Button
         variant="dark"
-        onClick={() => navigate(`/item/update/${props.id}`)}
+        onClick={() => AddToCart()}
       >
-        Update
-      </Button>
-      <br />
-      <Button
-        variant="dark"
-        onClick={() => deleteItem(props.id)}
-      >
-        Delete
-      </Button>
+        Add to Cart
+      </Button> 
     </Card>
   );
-}
 
-// AdminItemStructure.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   image: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   price: PropTypes.number.isRequired,
-//   quantity: PropTypes.number.isRequired
-// };
 
-export default AdminItemStructure;
+UserItemStructure.propTypes = {
+  id: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired
+};}
+
+export default UserItemStructure;
