@@ -29,8 +29,8 @@ function UserItemStructure(props) {
         console.error('Error fetching data: ', error);
       });
   }, []);
-  function AddToCart(id) {
-    axios.patch("http://localhost:8080/item/update/" + id, { cart: { id: 1 } })
+  function AddToCart() {
+    axios.patch(`http://localhost:8080/item/add/${props.id}/1`)
 
       .then(response => {
       })
@@ -38,17 +38,7 @@ function UserItemStructure(props) {
       .catch(err => console.error(err))
   };
 
-  
 
-  function deleteItem(id) {
-    axios.delete(`http://localhost:8080/item/delete/${id}`)
-      .then(() => window.location.reload())
-      .catch(error => console.error('There was an error!', error));
-  }
-
-  // if (!props.quantity) {
-  //   visibility = "none";
-  // }
 
   return (
     <Card>
