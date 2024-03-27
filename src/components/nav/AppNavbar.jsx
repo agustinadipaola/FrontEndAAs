@@ -20,16 +20,31 @@ function AppNavbar() {
   return (
     <Navbar bg="light" data-bs-theme="light">
       <Container>
-        <a className="navbar-brand" href="/">
+
+      {CURRENT_USER_TYPE === USER_TYPES.ADMIN_USER ? (
+
+        <a className="navbar-brand" href="/AdminHome">
           <img
             className="navbar-brand"
-            href="/home"
+            href="/AdminHome"
             alt="Big Cart Saver Logo"
             style={{ width: "15%" }}
             src={homeLogo}
           ></img>
         </a>
+ ) : null}
+   {CURRENT_USER_TYPE === USER_TYPES.NORMAL_USER ? (
 
+<a className="navbar-brand" href="/UserHome">
+  <img
+    className="navbar-brand"
+    href="/UserHome"
+    alt="Big Cart Saver Logo"
+    style={{ width: "15%" }}
+    src={homeLogo}
+  ></img>
+</a>
+) : null}
         {CURRENT_USER_TYPE === USER_TYPES.ADMIN_USER ? (
           <>
             <Link to="/item" className="roboto">

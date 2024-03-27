@@ -22,7 +22,7 @@ function LoginForm() {
         password,
       });
       console.log("Login successful:", response.data);
-      history("/dashboard");
+      history("/home");
     } catch (error) {
       console.error(
         "Login failed:",
@@ -33,6 +33,7 @@ function LoginForm() {
   };
 
   return (
+    
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div
         className="border rounded-lg p-4"
@@ -70,12 +71,12 @@ function LoginForm() {
           >
             SIGN IN
           </Button>
-          <div className="text-center">
+          {/* <div className="text-center">
             <br />
             <p>
               Not Registered yet? <a href="/signup">Register Here</a>
             </p>
-          </div>
+          </div> */}
         </MDBContainer>
       </div>
     </div>

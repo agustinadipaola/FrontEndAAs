@@ -31,9 +31,9 @@ function App() {
         <Route path="/item" element={<DisplayStockItems />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignupForm />} />
-        <Route path="/dashboard" element={<WelcomeDashboard />} />
+        {/* <Route path="/dashboard" element={<WelcomeDashboard />} /> */}
         <Route path="/welcomesignup" element={<SignUpDashboard />} />
-        <Route path="/home" element={<UserHome />} />
+        <Route path="/UserHome" element={<UserHome />} />
         <Route path="/UserItems" element={<UserItems />} />
         <Route path="/AdminHome" element={<AdminHome />} />
         <Route path="/checkout" element={<Checkout />} />

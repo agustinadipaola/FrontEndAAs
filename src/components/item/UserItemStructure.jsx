@@ -3,8 +3,8 @@ import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
-import { MdOutlineShoppingCart } from "react-icons/md";
-
+import Swal from "sweetalert2";
+import LogoSwal from "../../pictures/LogoSwal.png"
 
 function UserItemStructure(props) {
   const navigate = useNavigate();
@@ -13,12 +13,7 @@ function UserItemStructure(props) {
 
   let itemTotal = props.price * props.quantity;
 
-  // let visibility = false;
-  // function LowStock() {
-  //   if (props.quantity < 10) {
-  //     document.getElementById('ItemQuantity').style.backgroundColor = "Red";
-  //   }
-  // }
+
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -31,29 +26,48 @@ function UserItemStructure(props) {
       });
   }, []);
   function AddToCart() {
-    axios.patch(`http://localhost:8080/item/add/${props.id}/1`)
-
-      .then(response => {
-      })
-
-      .catch(err => console.error(err))
-  };
-
-
+    Swal.fire({
+      width:'22em',
+      title: "Item added to cart!",
+      imageUrl: LogoSwal,
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: "Custom image",
+      timer: 1500,
+      timerProgressBar: true,
+      showConfirmButton: false,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.patch(`http://localhost:8080/item/add/${props.id}/1`)
+          .then(response => {
+           
+          })
+          .catch(err => {
+            console.error(err);
+            
+          });
+      }
+    });
+  }
+  
 
   return (
     
     <Card >
   <img src={props.image} className="card-img-top" alt="itemImage" />
-      <h4>{props.itemName}</h4>
+      <h6>{props.itemName}</h6>
       {/* <p style={{ display: visibility }}> */}
-        <h6> £ {parseFloat(props.itemPrice).toFixed(2)}</h6>
+        <h4> <span class="a price-symbol">£</span>
+
+{parseFloat(props.itemPrice).toFixed(2)}</h4>
         
         <Button
-        variant="dark"
+        variant="light" style={{ border: '1px solid #000' }}
         onClick={() => AddToCart()}
       >
-          ADD TO CART  <MdOutlineShoppingCart size={25} />
+        
+         <strong> Add 
+         </strong>
       </Button> 
     </Card>
   );

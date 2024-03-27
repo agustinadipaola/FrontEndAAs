@@ -53,6 +53,7 @@ function DisplayCartContent() {
   useEffect(() => {
     getCartItems();
   }, []);
+  
 
   return (
     <div>
