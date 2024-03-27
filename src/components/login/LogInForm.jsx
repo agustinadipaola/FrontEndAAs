@@ -22,7 +22,7 @@ function LoginForm() {
         password,
       });
       console.log("Login successful:", response.data);
-      history("/home");
+      history("/UserHome");
     } catch (error) {
       console.error(
         "Login failed:",
