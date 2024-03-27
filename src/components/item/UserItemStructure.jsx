@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
-import LogoSwal from "../../pictures/LogoSwal.png"
+import LogoSwal from "../../pictures/LogoSwal.png";
+import background from "../../pictures/ShoppingBackground.png";
 
 function UserItemStructure(props) {
   const navigate = useNavigate();
@@ -27,8 +28,9 @@ function UserItemStructure(props) {
   }, []);
   function AddToCart() {
     Swal.fire({
-      width:'22em',
+      width:'15em',
       title: "Item added to cart!",
+      background: "#f5f5f5",
       imageUrl: LogoSwal,
       imageWidth: 100,
       imageHeight: 100,
