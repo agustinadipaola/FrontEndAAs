@@ -38,10 +38,10 @@ function ItemStructure(props) {
   }
   return (
     // Updated styles for the container div
-    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
       <Card
         key={props.id}
-        style={{ textAlign: "center", margin: "0.5rem", flex: "0 1 calc(25% - 1rem)" }} // Adjusted styles for Card
+        style={{ textAlign: "center", margin: "0.5rem", flex: "0 1 calc(25% - 1rem)", fontFamily: "roboto" }} // Adjusted styles for Card
       >
         {/* <div
               style={{

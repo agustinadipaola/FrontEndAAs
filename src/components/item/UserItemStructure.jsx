@@ -68,7 +68,7 @@ function UserItemStructure(props) {
         onClick={() => AddToCart()}
       >
         
-         <strong> Add 
+         <strong className="roboto"> Add 
          </strong>
       </Button> 
     </Card>

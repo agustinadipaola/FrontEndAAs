@@ -121,7 +121,7 @@ function DisplayCartContent() {
             padding: "10px",
           }}
         >
-          <h4>Total to pay: £{cartTotal.toFixed(2)}</h4>
+          <h4 className="roboto">Total to pay: £{cartTotal.toFixed(2)}</h4>
         </div>
         <Table>
           <div>{itemList}</div>
