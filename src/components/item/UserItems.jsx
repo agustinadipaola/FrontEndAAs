@@ -1,11 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import AdminItemStructure from "./AdminItemStructure";
-import { useNavigate } from "react-router";
-import { Card, Button } from "react-bootstrap";
+import UserItemStructure from "./UserItemStructure";
+import onsale from "../../pictures/onSale.png";
 
-
-function DisplayStockItems() {
+function UserItems() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -17,6 +15,7 @@ function DisplayStockItems() {
         console.error('Error fetching data: ', error);
       });
   }, []);
+ 
 
   return (
     <div className="container">
@@ -24,7 +23,13 @@ function DisplayStockItems() {
         {items.map((item, index) => (
           <div className="col-md-2" key={index}>
              <div className="card h-100"> 
-            <AdminItemStructure {...item} /> {/* Rendering the AdminItemStructure component for each item, spreading the item's properties as props */}
+             {/* Conditionally render the banner based on the item's showBanner property */}
+            {item.showBanner && (
+              <div className="banner">
+                <img src={onsale} alt="On Sale" />
+              </div>
+            )}
+            <UserItemStructure {...item} /> {/* Rendering the AdminItemStructure component for each item, spreading the item's properties as props */}
           </div>
           </div>
         ))}
@@ -33,4 +38,4 @@ function DisplayStockItems() {
   );
 }
 
-export default DisplayStockItems;
+export default UserItems;
