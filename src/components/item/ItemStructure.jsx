@@ -60,11 +60,14 @@ function ItemStructure(props) {
         <img src={props.image} className="item-images" alt="itemImage" />
         <br />
         <h4>{props.name}</h4>
-        <p style={{ display: visiblity }} >
-          {" "}
+        
+        
           <h6> £ {parseFloat(props.price).toFixed(2)}</h6>
+          <div>Quantity: 1</div>
+          <p style={{ display: visiblity }} >
+          {" "}
           <div>Items left: {props.quantity}</div>
-        </p>
+        
 
         <Button
           variant="dark"
@@ -83,6 +86,7 @@ function ItemStructure(props) {
         >
           Delete
         </Button>
+        </p>
       </Card>
     </div>
   );

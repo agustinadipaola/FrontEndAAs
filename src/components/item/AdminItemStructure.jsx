@@ -16,9 +16,36 @@ function AdminItemStructure(props) {
   // }
 
   function deleteItem(id) {
-    axios.delete(`http://localhost:8080/item/delete/${id}`)
-      .then(() => window.location.reload())
-      .catch(error => console.error('There was an error!', error));
+    Swal.fire({
+      title: "Are you sure you want to delete this item?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#67C9A6" ,
+      cancelButtonColor: "#FF6962",
+
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+          axios.delete(`http://localhost:8080/item/delete/${id}`)
+
+          .then(() => {
+            Swal.fire(
+              "Deleted!",
+              "Your file has been deleted.",
+              "success"
+              
+            );
+            window.location.reload();
+
+        })
+        .catch(error => console.error('There was an error!', error));
+
+      }
+      
+    });
+
+
   }
 
   // if (!props.quantity) {
@@ -37,6 +64,8 @@ function AdminItemStructure(props) {
         </div>
       <Button
         variant="dark"
+        style={{ fontFamily: "roboto, sans-serif" }}
+
         onClick={() => navigate(`/item/update/${props.id}`)}
       >
         Update
@@ -44,6 +73,8 @@ function AdminItemStructure(props) {
       <br />
       <Button
         variant="dark"
+        style={{ fontFamily: "roboto, sans-serif" }}
+
         onClick={() => deleteItem(props.id)}
       >
         Delete

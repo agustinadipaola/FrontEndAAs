@@ -12,7 +12,7 @@ function UserItemStructure(props) {
   const [itemQuantity, setItemQuantity] = useState();
   const [item, setItem] = useState();
 
-  let itemTotal = props.price * props.quantity;
+  let itemTotal = props.price ;
 
 
   const [items, setItems] = useState([]);
@@ -39,7 +39,7 @@ function UserItemStructure(props) {
       timerProgressBar: true,
       showConfirmButton: false,
     }).then((result) => {
-      if (result.isConfirmed) {
+      
         axios.patch(`http://localhost:8080/item/add/${props.id}/1`)
           .then(response => {
            
@@ -49,7 +49,7 @@ function UserItemStructure(props) {
             
           });
       }
-    });
+    );
   }
   
 

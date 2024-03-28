@@ -8,15 +8,23 @@ import { useNavigate } from "react-router";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+import background from "../../pictures/formbackground.png"
 
 function DisplayCartContent() {
   const params = useParams(""); // Get parameters from the URL (e.g., cart ID)
   const itemList = [];
   const [items, setItems] = useState([]);
   const [buyer, setBuyer] = useState("");
-  
+ 
+  const style = {
+    backgroundImage: `url(${background})`,
+    backgroundSize: 'cover', // Cover the entire space of the div
+    backgroundRepeat: 'no-repeat', // Do not repeat the image
+    backgroundPosition: 'center', // Center the background image
+  };
   let cartTotal = 0; // Total cost of items in the cart
   const navigate = useNavigate(); // Navigation function from React Router
+
 
   function getCartItems() {
     // Fetch cart items based on the cart ID
@@ -36,29 +44,28 @@ function DisplayCartContent() {
   for (const item of items) {
     itemList.push(
       <ItemStructure
-        id={item.id}
+      id={item.id}
         name={item.itemName}
         price={item.itemPrice}
-        quantity={item.itemQuantity}
         image={item.image}
       />
     );
   }
   // Calculate the total cost of items in the cart
   for (const item of items) {
-    cartTotal = cartTotal + item.itemPrice * item.itemQuantity;
+    cartTotal = cartTotal + item.itemPrice;
   }
 
-  // Run the getCartItems function when the component mounts
+  // Run the getCartItems function when the component mountss
   useEffect(() => {
     getCartItems();
   }, []);
   
 
   return (
-    <div>
+    <div style={style }>
       <div>
-        <div>
+        <div >
           <h3>
             <span
               style={{
