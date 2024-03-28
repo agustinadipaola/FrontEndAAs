@@ -29,8 +29,11 @@ const USER_TYPES = {
     </div>
   ),
 };
-const CURRENT_USER_TYPE = USER_TYPES.NORMAL_USER;
-// const CURRENT_USER_TYPE = USER_TYPES.ADMIN_USER;
+
+
+
+//const CURRENT_USER_TYPE = USER_TYPES.ADMIN_USER;
+ const CURRENT_USER_TYPE = USER_TYPES.NORMAL_USER;
 
 function App() {
   return (
@@ -97,7 +100,12 @@ function App() {
                 <Button variant="light">
                   <FaShoppingCart size={30} />
                   <span>
-                    <strong> 0 </strong>
+
+                    <strong> 2 </strong>
+
+
+
+
                   </span>
                 </Button>
               </Link>{" "}
