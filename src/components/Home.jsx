@@ -6,6 +6,7 @@ import priceMatch from "../pictures/priceMatch.jpg";
 import basket from "../pictures/basket.jpg";
 import homeBackground from "../pictures/homeBackground.jpg";
 function Home() {
+
     return (
         <div className="homeClass" style={{width:"100%"}}>
             
