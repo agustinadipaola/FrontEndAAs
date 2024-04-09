@@ -29,7 +29,6 @@ function WelcomeDashboard({ username }) {
             <strong>Logout</strong>
           </button>
         </div>
-        
       </div>
     </div>
   );
