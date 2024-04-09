@@ -3,6 +3,8 @@ import background from "../pictures/ShoppingBackground.png";
 function Home() {
   return (
     <div
+
+    
       className="bg"
       style={{
         height: "100vh", // Set the height to 100% of the viewport height
