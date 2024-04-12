@@ -38,47 +38,49 @@
 }
 
 #cartSearch {
-  
   display: inline-block;
-  
-  
-
 }
 #cartCreate {
-  
   display: inline-block;
-  padding:20px;
-  margin:50px;
+  padding: 20px;
+  margin: 50px;
   /* border:solid; 
   borderColor:   black; */
+}
 
+@font-face {
+  font-family: roboto;
+  src: url(../public/RobotoMono-VariableFont_wght.ttf);
 }
-.homeimage {
-  /* background: url("../src/pictures/homeLogo.jpg"); */
-  background-size: auto;
-  background-repeat: no-repeat;
-  height: 1vh;
-  background-position: left;
 
+.roboto {
+  font-family: roboto;
 }
-body{
-  background: url("../src/pictures/homeBackgroundcopy.jpg");
-  background-size: contain;
-  height: 112vh;
-  background-repeat: no-repeat;
-  background-position: right;
+.icon-cart {
+  position: relative;
 }
-.numberCircle {
-  border-radius: 50%; 
+.icon-cart span {
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  right: -20px;
   width: 30px;
   height: 30px;
-   padding: 4px; 
-
-  background:red;
-  /* border:2px solid #666; */
-  color: #666;
-  color: white;
-  text-align: center;
-
-  font: 15px Arial, sans-serif;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.item-images {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.card-img-top {
+  width: 100%; /* This will make the image take up the full width of the card */
+  height: 200px; /* This sets a fixed height for the image */
+  object-fit: cover; /* This will cover the area without stretching the image */
+}
+
